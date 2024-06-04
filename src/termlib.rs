@@ -22,8 +22,8 @@ pub enum TermEvent {
     Char{char:char},
     Mouse{event:MouseEvent},
     Arrow{x:i32,y:i32,modifiers:i32},
-    Enter{},
-    Backspace{},
+    Enter,
+    Backspace,
 }
 
 #[derive(Clone)]
@@ -73,7 +73,7 @@ impl Term {
 
                         console::Key::Enter => {
                             t.events.lock().unwrap().push(
-                                TermEvent::Enter{}
+                                TermEvent::Enter
                             );
                         },
 
@@ -115,9 +115,7 @@ impl Term {
 
                         console::Key::Backspace => {
                             t.events.lock().unwrap().push(
-                                TermEvent::Backspace {
-
-                                }
+                                TermEvent::Backspace
                             );
                         }
                         
